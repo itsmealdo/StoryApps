@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity">
+
+    <ImageView
+        android:id="@+id/iv_char2"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/content_desc"
+        android:src="@drawable/work"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_welcomeback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_back"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black_50"
+        android:textSize="30sp"
+        android:fontFamily="@font/nunitobold"
+        app:layout_constraintTop_toBottomOf="@id/iv_char2"/>
+
+    <TextView
+        android:id="@+id/tvWelcomeDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_desc"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:textSize="15sp"
+        android:textColor="@color/blue"
+        android:fontFamily="@font/nunitomed"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcomeback"/>
+
+    <com.itsmealdo.storyapps.customview.EmailEditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="@font/nunitosembold"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeDesc"/>
+
+    <com.itsmealdo.storyapps.customview.PasswordEditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:inputType="textPassword"
+        android:fontFamily="@font/nunitosembold"
+        app:layout_constraintStart_toStartOf="@id/etEmail"
+        app:layout_constraintEnd_toEndOf="@id/etEmail"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:fontFamily="@font/nunitobold"
+        android:background="@drawable/btnlogin"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/etPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvRegisterDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_ask"
+        android:fontFamily="@font/nunitosembold"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:fontFamily="@font/nunitoexbold"
+        android:textColor="@color/blue_50"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRegisterDesc"
+        app:layout_constraintStart_toEndOf="@+id/tvRegisterDesc"
+        app:layout_constraintTop_toTopOf="@+id/tvRegisterDesc" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_post_scene">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/nunitobold"
+        android:gravity="center"
+        android:text="@string/post_title"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivStory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:src="@tools:sample/avatars"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@id/etDesc"
+        android:contentDescription="@string/photo_story_upload" />
+
+    <EditText
+        android:id="@+id/etDesc"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:autofillHints="Description"
+        android:background="@drawable/et_description"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/enter_description"
+        android:inputType="textMultiLine|textPersonName"
+        android:padding="28dp"
+        android:paddingBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnPost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btnlogin"
+        android:layout_marginBottom="20dp"
+        android:text="@string/post"
+        android:textColor="@color/white_100"
+        android:fontFamily="@font/nunitosembold"
+        android:layout_marginStart="50dp"
+        android:textAllCaps="false"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imgContainer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivStory"
+        app:layout_constraintEnd_toEndOf="@+id/ivStory"
+        app:srcCompat="@drawable/container_circle"
+        android:contentDescription="@string/expand_image" />
+
+    <ImageView
+        android:id="@+id/imgExpand"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_full"
+        app:layout_constraintBottom_toBottomOf="@+id/ivStory"
+        app:layout_constraintEnd_toEndOf="@id/ivStory"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="26dp"
+        android:contentDescription="@string/expand_image" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
