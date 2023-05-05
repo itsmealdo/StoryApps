@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tvUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -48,6 +49,7 @@
             android:layout_marginTop="10dp"/>
 
         <ImageView
+            android:id="@+id/ivStory"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             tools:src="@tools:sample/avatars"
