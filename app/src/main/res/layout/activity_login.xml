@@ -26,7 +26,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/black_50"
+        style="@style/TextLogin"
         android:textSize="30sp"
         android:fontFamily="@font/nunitobold"
         app:layout_constraintTop_toBottomOf="@id/iv_char2"/>
@@ -97,7 +97,7 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register"
@@ -113,6 +113,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        android:focusable="true"
+        android:elevation="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

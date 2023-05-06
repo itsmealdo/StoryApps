@@ -38,7 +38,7 @@ class PasswordEditText : EditTextCustom {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (!text.isNullOrBlank()) {
-                    error = if (text!!.length <= 6) {
+                    error = if (text!!.length <= 7) {
                         resources.getString(R.string.password_minimum)
                     } else {
                         null

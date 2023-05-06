@@ -21,6 +21,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <ImageView
         android:id="@+id/ivStory"
         android:layout_width="match_parent"
@@ -38,6 +40,7 @@
         android:autofillHints="Description"
         android:background="@drawable/et_description"
         android:ems="10"
+        style="@style/DescBox"
         android:gravity="start|top"
         android:hint="@string/enter_description"
         android:inputType="textMultiLine|textPersonName"
@@ -64,6 +67,16 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imgContainer"
         android:layout_width="50dp"
@@ -85,6 +98,10 @@
         android:layout_marginBottom="26dp"
         android:layout_marginEnd="26dp"
         android:contentDescription="@string/expand_image" />
+
+
+
+
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

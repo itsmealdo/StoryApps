@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         binding.btnSettings.setOnClickListener {
-            startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 
         binding.btnLogout.setOnClickListener {

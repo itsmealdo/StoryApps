@@ -3,7 +3,6 @@ package com.itsmealdo.storyapps.data.repo
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
 import com.itsmealdo.storyapps.data.local.entity.StoryList
 import com.itsmealdo.storyapps.data.local.room.StoryDao
 import com.itsmealdo.storyapps.data.remote.model.AddStoryResponse
@@ -27,9 +26,9 @@ class StoryRepository private constructor(
     private val storyExecutor: storyExecutor
 ) {
     private val getUserStoryResult = MediatorLiveData<Result<List<StoryList>>>()
-    private val postUserStoryResult = MediatorLiveData<Result<List<AddStoryResponse>>>()
+    private val postUserStoryResult = MediatorLiveData<Result<AddStoryResponse>>()
 
-    fun postUserStory(token: String, imageFile: File, description: String): MediatorLiveData<Result<List<AddStoryResponse>>> {
+    fun postUserStory(token: String, imageFile: File, description: String): MediatorLiveData<Result<AddStoryResponse>> {
         postUserStoryResult.postValue(Result.Loading)
 
         val textMediaType = "text/plain".toMediaType()
@@ -43,10 +42,8 @@ class StoryRepository private constructor(
 
         val descriptionBody = description.toRequestBody(textMediaType)
 
-        val postResult = MutableLiveData<Result<AddStoryResponse>>()
-
-        val postClient = apiService.addStory(token, imagePart, descriptionBody)
-        postClient.enqueue(object : Callback<AddStoryResponse> {
+        val client = apiService.addStory(token, imagePart, descriptionBody)
+        client.enqueue(object : Callback<AddStoryResponse> {
             override fun onResponse(
                 call: Call<AddStoryResponse>,
                 response: Response<AddStoryResponse>
@@ -54,19 +51,19 @@ class StoryRepository private constructor(
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null) {
-                        postResult.postValue(Result.Success(responseBody))
+                        postUserStoryResult.postValue(Result.Success(responseBody))
                     } else {
-                        postResult.postValue(Result.Error(POST_MESSAGE_ERROR))
-                        Log.e(TAG, "Failed: story post response body is null")
+                        postUserStoryResult.postValue(Result.Error(POST_MESSAGE_ERROR))
+                        Log.e(TAG, "Failed: story post info is null")
                     }
                 } else {
-                    postResult.postValue(Result.Error(POST_MESSAGE_ERROR))
-                    Log.e(TAG, "Failed: sorry, story post response unsuccessful - ${response.message()}")
+                    postUserStoryResult.postValue(Result.Error(POST_MESSAGE_ERROR))
+                    Log.e(TAG, "Failed: story post response unsuccessful - ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<AddStoryResponse>, t: Throwable) {
-                postResult.postValue(Result.Error(POST_MESSAGE_ERROR))
+                postUserStoryResult.postValue(Result.Error(POST_MESSAGE_ERROR))
                 Log.e(TAG, "Failed: story post response failure - ${t.message}")
             }
         })

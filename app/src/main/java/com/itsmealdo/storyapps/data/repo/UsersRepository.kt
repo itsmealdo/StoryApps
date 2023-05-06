@@ -84,7 +84,7 @@ class UsersRepository private constructor(
 
     companion object {
         private val TAG = UsersRepository::class.java.simpleName
-        private const val LOGIN_MESSAGE_ERROR = "Login failed, please try again later."
+        private const val LOGIN_MESSAGE_ERROR = "Your email or password is incorrect, please try again. "
         private const val REGISTER_MESSAGE_ERROR = "Register failed, please try again later."
 
         @Volatile

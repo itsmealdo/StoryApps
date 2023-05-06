@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.itsmealdo.storyapps.data.local.entity.StoryEntity
+import com.itsmealdo.storyapps.data.local.entity.StoryList
 
 
-@Database(entities = [StoryEntity::class], version = 1)
+@Database(entities = [StoryList::class], version = 1)
 abstract class StoryDatabase : RoomDatabase() {
     abstract fun storyDao() : StoryDao
 

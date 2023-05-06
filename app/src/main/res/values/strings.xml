@@ -10,7 +10,7 @@
     <string name="login_desc">Hello there, sign in to continue</string>
     <string name="check_valid_email">Please, input a valid email address </string>
     <string name="email_empty">Email cannot be empty</string>
-    <string name="password_minimum">Password must consist of minimum 6 characters</string>
+    <string name="password_minimum">Password must consist of minimum 8 characters</string>
     <string name="register_ask">Don\'t have a account?</string>
     <string name="register">Register</string>
     <string name="create_account">Create Account</string>
@@ -34,5 +34,14 @@
     <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="story_image">Story Image</string>
     <string name="password_empty">Password cannot be empty</string>
+    <string name="name_empty">Name cannot be empty</string>
     <string name="imageregister">ImageRegister</string>
+    <string name="createdAt">17/01/2001</string>
+    <string name="register_success">Your Account was Successfully created</string>
+    <string name="processing_capture">Please Wait until is done.</string>
+    <string name="capture_failed">Failed to capture image</string>
+    <string name="camera_fail_open">Failed to Open Camera</string>
+    <string name="wait_processing">Wait until processing is done</string>
+    <string name="desc_required">Description cannot be left blank</string>
+    <string name="post_success">Your post was successfully created</string>
 </resources>
