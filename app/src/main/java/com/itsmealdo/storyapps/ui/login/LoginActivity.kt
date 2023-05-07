@@ -44,10 +44,13 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             if (!binding.etEmail.text.isNullOrEmpty() && !binding.etPassword.text.isNullOrEmpty()) {
-                    val email = binding.etEmail.text.toString()
-                    val password = binding.etPassword.text.toString()
-                    val result = loginModelView.login(email, password)
+                val email = binding.etEmail.text.toString()
+                val password = binding.etPassword.text.toString()
+                val result = loginModelView.login(email, password)
 
+                if (password.length <= 7) {
+                    Toast.makeText(this, getString(R.string.password_minimum), Toast.LENGTH_SHORT).show()
+                } else {
                     result.observe(this) {
                         when (it) {
                             is Result.Success -> {
@@ -71,11 +74,11 @@ class LoginActivity : AppCompatActivity() {
                             }
                         }
                     }
-                } else {
+                }
+            } else {
                     binding.etEmail.error = resources.getString(R.string.email_empty)
                     binding.etPassword.error = resources.getString(R.string.password_empty)
-            }
-
+                }
         }
 
         binding.btnRegister.setOnClickListener {

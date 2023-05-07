@@ -1,12 +1,15 @@
 package com.itsmealdo.storyapps.ui.detail
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.itsmealdo.storyapps.databinding.ActivityDetailBinding
 import com.itsmealdo.storyapps.ui.main.MainActivity
-import com.itsmealdo.storyapps.ui.register.RegisterActivity
+import com.itsmealdo.storyapps.utils.DateFormatter
+import java.util.TimeZone
 
 class DetailActivity : AppCompatActivity() {
 
@@ -14,6 +17,7 @@ class DetailActivity : AppCompatActivity() {
         ActivityDetailBinding.inflate(layoutInflater)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -21,6 +25,7 @@ class DetailActivity : AppCompatActivity() {
         viewSetup()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun viewSetup() {
         val name = intent.getStringExtra(NAME_EXTRA)
         val createdAt = intent.getStringExtra(CREATED_AT_EXTRA)
@@ -31,7 +36,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.tvUsername.text = name
         binding.tvUsernames.text = name
-        binding.tvCreatedAt.text = createdAt
+        binding.tvCreatedAt.text = createdAt?.let { DateFormatter.formatDate(it, TimeZone.getDefault().id) }
         binding.tvDesc.text = description
 
         Glide.with(this)

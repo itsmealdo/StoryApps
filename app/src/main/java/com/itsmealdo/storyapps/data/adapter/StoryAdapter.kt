@@ -3,8 +3,10 @@ package com.itsmealdo.storyapps.data.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +14,8 @@ import com.bumptech.glide.Glide
 import com.itsmealdo.storyapps.data.local.entity.StoryList
 import com.itsmealdo.storyapps.databinding.PostItemBinding
 import com.itsmealdo.storyapps.ui.detail.DetailActivity
+import com.itsmealdo.storyapps.utils.DateFormatter
+import java.util.TimeZone
 
 class StoryAdapter(private val context: Context, private val storyLists: List<StoryList>) :
     RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
@@ -21,10 +25,11 @@ class StoryAdapter(private val context: Context, private val storyLists: List<St
         return ViewHolder(binding)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val story = storyLists[position]
         holder.binding.tvUsername.text = story.name
-        holder.binding.tvCreatedAt.text = story.createdAt
+        holder.binding.tvCreatedAt.text = DateFormatter.formatDate(story.createdAt, TimeZone.getDefault().id)
         holder.binding.tvDesc.text = story.description
 
         Glide.with(holder.itemView.context)
